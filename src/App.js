@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import { Connect } from "./components/Connect";
+import { WalletStatus } from "./components/WalletStatus";
+import { SignMessage } from "./components/SignMessage";
+import { ContractCall } from "./components/ContractCall";
+
+const StyledAppDiv = styled.div`
+  display: grid;
+  grid-gap: 20px;
+
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <StyledAppDiv>
+      <Connect />
+      <WalletStatus />
+      <SignMessage />
+      <ContractCall />
+   </StyledAppDiv>
   );
 }
 
