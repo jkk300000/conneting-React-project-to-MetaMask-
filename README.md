@@ -115,7 +115,7 @@ npm start
 
 
 
-**개발자**: [본인 이름]  
+
 **기술 스택**: React, Web3, Ethers.js, MetaMask, Solidity  
-**프로젝트 기간**: [개발 기간]  
-**GitHub**: [저장소 링크]
+**프로젝트 기간**: [2023.03 ~ 2023.04]  
+**GitHub**: [https://github.com/jkk300000/conneting-React-project-to-MetaMask-]
