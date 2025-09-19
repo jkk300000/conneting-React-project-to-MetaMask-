@@ -225,8 +225,5 @@ const greetingContract = await Greeting.deploy('Hello, FastCampus');
 
 ---
 
-**개발자**: [본인 이름]  
-**이메일**: [이메일 주소]  
-**GitHub**: [GitHub 프로필 링크]  
-**기술 스택**: React, Web3, Ethers.js, MetaMask, Solidity  
-**프로젝트 기간**: [개발 기간]
+ 
+**프로젝트 기간**: [2023.03 ~ 2023.04]
