@@ -7,6 +7,7 @@
 - [프로젝트 소개](#-프로젝트-소개)
 - [주요 기능](#-주요-기능)
 - [기술 스택](#-기술-스택)
+- [시스템 아키텍처](#-시스템-아키텍처)
 - [프로젝트 구조](#-프로젝트-구조)
 - [설치 및 실행](#-설치-및-실행)
 - [사용 방법](#-사용-방법)
@@ -49,6 +50,31 @@
 - 컨트랙트 상태 조회 및 변경
 - 트랜잭션 처리 및 결과 확인
 
+
+
+## 🏗️ 시스템 아키텍처
+
+```mermaid
+graph TB
+    A[사용자] --> B[React 앱]
+    B --> C[MetaMask]
+    C --> D[이더리움 네트워크]
+    D --> E[스마트 컨트랙트]
+    
+    B --> F[Connect]
+    B --> G[WalletStatus]
+    B --> H[SignMessage]
+    B --> I[ContractCall]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#fce4ec
+```
+
+
+
 ## 🛠️ 기술 스택
 
 ### Frontend
@@ -68,6 +94,20 @@
 ### Development Tools
 - **Node.js** - 런타임 환경
 - **npm/yarn** - 패키지 관리
+
+
+
+### 주요 구성 요소
+- **React 앱**: 사용자 인터페이스
+- **MetaMask**: 지갑 연결 및 트랜잭션 처리
+- **이더리움 네트워크**: 블록체인 데이터 저장
+- **스마트 컨트랙트**: Greeting 컨트랙트 로직
+
+### 데이터 흐름
+1. 사용자가 React 앱에서 액션 실행
+2. MetaMask를 통해 이더리움 네트워크 연결
+3. 스마트 컨트랙트와 상호작용
+4. 실시간으로 UI 업데이트
 
 ## 📁 프로젝트 구조
 
@@ -89,34 +129,6 @@ src/
 ├── App.js                     # 메인 애플리케이션 컴포넌트
 └── index.js                   # 애플리케이션 진입점
 ```
-
-
-
-## 🖥️ 실행 화면
-
-
-### 메타마스크 연결 전 
-
-![메타마스크 연결](https://github.com/user-attachments/assets/98cccecc-1dfb-44f2-b1bf-ed588478d81e)
-
-### 메타마스크 연결 후
-
-![메타마스크 연결 후](https://github.com/user-attachments/assets/480d8cdd-6afe-4b3a-a807-418f436839ba)
-
-
-
-### 서명 요청
-
-![서명 요청](https://github.com/user-attachments/assets/6b0c6d5e-cd3d-4ab3-982e-3974dfbcef7a)
-
-
-
-### 서명 완료
-
-<img width="437" height="213" alt="image" src="https://github.com/user-attachments/assets/8db8383e-2fe9-4572-8f8e-d3200b18e04e" />
-
-
-
 
 ## 🚀 설치 및 실행
 
@@ -222,21 +234,20 @@ const greetingContract = await Greeting.deploy('Hello, FastCampus');
 
 
 #### A. **네트워크 성능 지표**
-| 지표 | 측정값 |
-|------|--------|
-| 전체 로딩 시간 | 650ms | 
-| HTML 문서 | 3ms (캐시) | 
-| JavaScript 번들 | 5ms (캐시) | 
-| 캐시 적중률 | 85.7% (6/7) | 
-| contentscript.js | 135ms |
-
+| 지표 | 측정값 | 최적화 상태 |
+|------|--------|-------------|
+| 전체 로딩 시간 | 650ms | ✅ 양호 |
+| HTML 문서 | 3ms (캐시) | ✅ 최적화됨 |
+| JavaScript 번들 | 5ms (캐시) | ✅ 최적화됨 |
+| 캐시 적중률 | 85.7% (6/7) | ✅ 우수 |
+| contentscript.js | 135ms | ⚠️ 개선 필요 |
 
 #### B. **Web3 성능 지표**
-| 기능 |  측정값 |
-|------|-----------|
-| MetaMask 연결 | 1250.5ms (1.25초) |
-| 블록체인 조회 | 450.2ms (0.45초) | 
-| 컨트랙트 배포 | 2100.8ms (2.1초) |
+| 기능 | 예상 시간 | 실제 결과 | 상태 |
+|------|-----------|-----------|------|
+| MetaMask 연결 | 200ms-1초 | 1250.5ms (1.25초) | ⚠️ 예상보다 느림 |
+| 블록체인 조회 | 100-800ms | 450.2ms (0.45초) | ✅ 양호 |
+| 컨트랙트 배포 | 15-30초 | 2100.8ms (2.1초) | ✅ 예상보다 빠름 |
 
 
 #### C. **사용자 인터랙션 성능**
@@ -248,9 +259,9 @@ const greetingContract = await Greeting.deploy('Hello, FastCampus');
 | UI 렌더링 | 60fps | 브라우저 성능 |
 
 
+```
 
-
-
+**측정 방법**: 브라우저 개발자 도구 → Console 탭 → 위의 JavaScript 코드 실행
 
 ## 🎓 학습 성과
 
@@ -268,9 +279,29 @@ const greetingContract = await Greeting.deploy('Hello, FastCampus');
 - 스마트 컨트랙트 개발 및 배포
 - 사용자 경험을 고려한 에러 처리
 
+## 🔮 개선 계획
 
+### 단기 계획
+- [ ] TypeScript 마이그레이션
+- [ ] 테스트 코드 작성 (Jest, React Testing Library)
+- [ ] 모바일 반응형 디자인 개선
+- [ ] 성능 최적화 및 번들 크기 최소화
 
+### 장기 계획
+- [ ] 다중 네트워크 지원 (Polygon, BSC, Arbitrum 등)
+- [ ] NFT 민팅 기능 추가
+- [ ] DeFi 프로토콜 연동 (Uniswap, Compound 등)
+- [ ] 다중 지갑 지원 (WalletConnect, Coinbase Wallet 등)
+- [ ] PWA (Progressive Web App) 구현
+
+## 📄 라이선스
+
+이 프로젝트는 MIT 라이선스 하에 배포됩니다.
 
 ---
 
+**개발자**: [본인 이름]  
+**이메일**: [이메일 주소]  
+**GitHub**: [GitHub 프로필 링크]  
+**기술 스택**: React, Web3, Ethers.js, MetaMask, Solidity  
 **프로젝트 기간**: [2023.03 ~ 2023.04]
