@@ -222,7 +222,7 @@ const greetingContract = await Greeting.deploy('Hello, FastCampus');
 
 ```
 
-**측정 방법**: 브라우저 개발자 도구 → Console 탭 → 위의 JavaScript 코드 실행
+
 
 ## 🎓 학습 성과
 
