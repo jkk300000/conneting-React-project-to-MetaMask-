@@ -90,6 +90,22 @@ src/
 └── index.js                   # 애플리케이션 진입점
 ```
 
+
+
+## 🖥️ 실행 화면
+
+
+![메타마스크 연결](https://github.com/user-attachments/assets/98cccecc-1dfb-44f2-b1bf-ed588478d81e)
+
+
+![메타마스크 연결 후](https://github.com/user-attachments/assets/480d8cdd-6afe-4b3a-a807-418f436839ba)
+
+
+
+
+
+
+
 ## 🚀 설치 및 실행
 
 ### 필수 요구사항
