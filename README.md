@@ -240,29 +240,9 @@ const greetingContract = await Greeting.deploy('Hello, FastCampus');
 - 스마트 컨트랙트 개발 및 배포
 - 사용자 경험을 고려한 에러 처리
 
-## 🔮 개선 계획
 
-### 단기 계획
-- [ ] TypeScript 마이그레이션
-- [ ] 테스트 코드 작성 (Jest, React Testing Library)
-- [ ] 모바일 반응형 디자인 개선
-- [ ] 성능 최적화 및 번들 크기 최소화
 
-### 장기 계획
-- [ ] 다중 네트워크 지원 (Polygon, BSC, Arbitrum 등)
-- [ ] NFT 민팅 기능 추가
-- [ ] DeFi 프로토콜 연동 (Uniswap, Compound 등)
-- [ ] 다중 지갑 지원 (WalletConnect, Coinbase Wallet 등)
-- [ ] PWA (Progressive Web App) 구현
-
-## 📄 라이선스
-
-이 프로젝트는 MIT 라이선스 하에 배포됩니다.
 
 ---
 
-**개발자**: [본인 이름]  
-**이메일**: [이메일 주소]  
-**GitHub**: [GitHub 프로필 링크]  
-**기술 스택**: React, Web3, Ethers.js, MetaMask, Solidity  
 **프로젝트 기간**: [2023.03 ~ 2023.04]
