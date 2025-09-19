@@ -359,7 +359,73 @@ const reportWebVitals = onPerfEntry => {
 
 
 
-#### 실제 측정 결과 기록
+## 🚀 Web3 성능 측정 및 분석
+
+### 📊 성능 측정 방법론
+
+#### 1. **브라우저 기반 측정**
+- **개발자 도구**: F12 → Console 탭에서 JavaScript 코드 실행
+- **Performance 탭**: 타임라인 기반 상세 성능 분석
+- **Network 탭**: Web3 API 호출 및 응답 시간 측정
+
+#### 2. **측정 코드 예시**
+```javascript
+// MetaMask 연결 성능 측정
+console.time('MetaMask Connection');
+// Connect 버튼 클릭 후 MetaMask 승인
+console.timeEnd('MetaMask Connection');
+
+// 블록체인 조회 성능 측정
+async function measureBlockchainQuery() {
+    console.time('Blockchain Query');
+    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+    const balance = await window.ethereum.request({
+        method: 'eth_getBalance',
+        params: [accounts[0], 'latest']
+    });
+    console.timeEnd('Blockchain Query');
+}
+
+// 트랜잭션 처리 성능 측정
+async function measureTransaction() {
+    console.time('Transaction Processing');
+    const signature = await window.ethereum.request({
+        method: 'personal_sign',
+        params: ['Hello Web3', window.ethereum.selectedAddress]
+    });
+    console.timeEnd('Transaction Processing');
+}
+```
+
+### 📈 성능 지표 분류
+
+#### A. **네트워크 성능 지표**
+| 지표 | 측정값 | 최적화 상태 |
+|------|--------|-------------|
+| 전체 로딩 시간 | 650ms | ✅ 양호 |
+| HTML 문서 | 3ms (캐시) | ✅ 최적화됨 |
+| JavaScript 번들 | 5ms (캐시) | ✅ 최적화됨 |
+| 캐시 적중률 | 85.7% (6/7) | ✅ 우수 |
+| contentscript.js | 135ms | ⚠️ 개선 필요 |
+
+#### B. **Web3 성능 지표**
+| 기능 | 예상 시간 | 측정 방법 |
+|------|-----------|-----------|
+| MetaMask 연결 | 200ms-1초 | Connect 버튼 클릭 시간 |
+| 블록체인 조회 | 100-800ms | API 호출 응답 시간 |
+| 메시지 서명 | 1-3초 | personal_sign 메서드 |
+| 컨트랙트 배포 | 15-30초 | deploy 트랜잭션 |
+| 상태 변경 | 10-20초 | setGreeting 트랜잭션 |
+
+#### C. **사용자 인터랙션 성능**
+| 상호작용 | 응답 시간 | 측정 기준 |
+|----------|-----------|-----------|
+| 버튼 클릭 | <100ms | UI 반응 속도 |
+| 상태 업데이트 | 즉시 | React 리렌더링 |
+| 에러 처리 | 실시간 | 사용자 피드백 |
+| UI 렌더링 | 60fps | 브라우저 성능 |
+
+### 🎯 실제 측정 결과 기록
 ```javascript
 // 브라우저 Console에서 측정한 실제 결과
 MetaMask Connection: 1250.5ms
@@ -410,4 +476,4 @@ Transaction Processing: 2100.8ms
 **이메일**: [이메일 주소]  
 **GitHub**: [GitHub 프로필 링크]  
 **기술 스택**: React, Web3, Ethers.js, MetaMask, Solidity  
-**프로젝트 기간**: [개발 기간]
+**프로젝트 기간**: [2023.03 ~ 2023.04]
