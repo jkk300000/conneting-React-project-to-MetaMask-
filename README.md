@@ -105,6 +105,15 @@ src/
 
 
 
+### 서명 요청
+
+![서명 요청](https://github.com/user-attachments/assets/6b0c6d5e-cd3d-4ab3-982e-3974dfbcef7a)
+
+
+
+### 서명 완료
+
+<img width="437" height="213" alt="image" src="https://github.com/user-attachments/assets/8db8383e-2fe9-4572-8f8e-d3200b18e04e" />
 
 
 
