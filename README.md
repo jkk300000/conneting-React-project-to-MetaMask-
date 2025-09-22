@@ -28,27 +28,7 @@
 - 블록체인 데이터 실시간 처리
 - 스마트 컨트랙트 배포 및 상호작용
 
-## ✨ 주요 기능
 
-### 🔗 지갑 연결 관리
-- MetaMask 지갑 자동 연결/해제
-- 연결 상태 실시간 모니터링
-- 다양한 연결 오류 상황 처리
-
-### 📊 실시간 블록체인 데이터
-- 계정 주소 및 잔액 표시
-- 네트워크 체인 ID 및 블록 번호
-- 트랜잭션 Nonce 정보
-- 실시간 데이터 업데이트
-
-### ✍️ 메시지 서명
-- 개인키를 사용한 디지털 서명
-- 서명 검증 및 결과 표시
-
-### 📜 스마트 컨트랙트 상호작용
-- Greeting 컨트랙트 동적 배포
-- 컨트랙트 상태 조회 및 변경
-- 트랜잭션 처리 및 결과 확인
 
 
 
@@ -95,7 +75,27 @@ graph TB
 - **Node.js** - 런타임 환경
 - **npm/yarn** - 패키지 관리
 
+## ✨ 주요 기능
 
+### 🔗 지갑 연결 관리
+- MetaMask 지갑 자동 연결/해제
+- 연결 상태 실시간 모니터링
+- 다양한 연결 오류 상황 처리
+
+### 📊 실시간 블록체인 데이터
+- 계정 주소 및 잔액 표시
+- 네트워크 체인 ID 및 블록 번호
+- 트랜잭션 Nonce 정보
+- 실시간 데이터 업데이트
+
+### ✍️ 메시지 서명
+- 개인키를 사용한 디지털 서명
+- 서명 검증 및 결과 표시
+
+### 📜 스마트 컨트랙트 상호작용
+- Greeting 컨트랙트 동적 배포
+- 컨트랙트 상태 조회 및 변경
+- 트랜잭션 처리 및 결과 확인
 
 ### 주요 구성 요소
 - **React 앱**: 사용자 인터페이스
@@ -109,77 +109,6 @@ graph TB
 3. 스마트 컨트랙트와 상호작용
 4. 실시간으로 UI 업데이트
 
-## 📁 프로젝트 구조
-
-```
-src/
-├── components/                 # React 컴포넌트
-│   ├── Connect.jsx            # 지갑 연결/해제 컴포넌트
-│   ├── WalletStatus.jsx       # 지갑 상태 표시 컴포넌트
-│   ├── SignMessage.jsx        # 메시지 서명 컴포넌트
-│   └── ContractCall.jsx       # 스마트 컨트랙트 상호작용
-├── utils/                     # 유틸리티 함수
-│   ├── connectors.js          # Web3 연결 설정
-│   ├── hooks.js               # 커스텀 React 훅
-│   └── provider.js            # 이더리움 프로바이더 설정
-├── artifacts/                 # 컴파일된 스마트 컨트랙트
-│   └── contracts/
-│       └── Greetings.sol/
-│           └── Greeting.json  # ABI 및 바이트코드
-├── App.js                     # 메인 애플리케이션 컴포넌트
-└── index.js                   # 애플리케이션 진입점
-```
-
-
-
-
-## 🚀 설치 및 실행
-
-### 필수 요구사항
-- Node.js 14.0 이상
-- MetaMask 브라우저 확장 프로그램
-- 이더리움 테스트넷 (Rinkeby, Goerli 등)
-
-### 설치 과정
-
-1. **저장소 클론**
-```bash
-git clone [repository-url]
-cd connecting-React-project-to-MetaMask--React-Etherium
-```
-
-2. **의존성 설치**
-```bash
-npm install
-# 또는
-yarn install
-```
-
-3. **개발 서버 실행**
-```bash
-npm start
-# 또는
-yarn start
-```
-
-4. **브라우저에서 확인**
-```
-http://localhost:3000
-```
-
-## 📱 사용 방법
-
-### 1단계: MetaMask 설정
-1. 브라우저에 MetaMask 확장 프로그램 설치
-2. 지갑 생성 또는 기존 지갑 가져오기
-3. 테스트넷으로 네트워크 변경
-
-### 2단계: 애플리케이션 사용
-1. **지갑 연결**: "Connect" 버튼 클릭
-2. **상태 확인**: 연결된 지갑 정보 확인
-3. **메시지 서명**: "Sign Message" 버튼으로 서명 테스트
-4. **컨트랙트 배포**: "Deploy Greeting Contract" 클릭
-5. **인사말 변경**: 새로운 인사말 입력 및 제출
 
 ## 🔧 핵심 구현 사항
 
@@ -214,6 +143,33 @@ const Greeting = new ethers.ContractFactory(
 );
 const greetingContract = await Greeting.deploy('Hello, FastCampus');
 ```
+
+
+## 📁 프로젝트 구조
+
+```
+src/
+├── components/                 # React 컴포넌트
+│   ├── Connect.jsx            # 지갑 연결/해제 컴포넌트
+│   ├── WalletStatus.jsx       # 지갑 상태 표시 컴포넌트
+│   ├── SignMessage.jsx        # 메시지 서명 컴포넌트
+│   └── ContractCall.jsx       # 스마트 컨트랙트 상호작용
+├── utils/                     # 유틸리티 함수
+│   ├── connectors.js          # Web3 연결 설정
+│   ├── hooks.js               # 커스텀 React 훅
+│   └── provider.js            # 이더리움 프로바이더 설정
+├── artifacts/                 # 컴파일된 스마트 컨트랙트
+│   └── contracts/
+│       └── Greetings.sol/
+│           └── Greeting.json  # ABI 및 바이트코드
+├── App.js                     # 메인 애플리케이션 컴포넌트
+└── index.js                   # 애플리케이션 진입점
+```
+
+
+
+
+
 
 ## ⚡ 기술적 특징
 
@@ -276,11 +232,63 @@ const greetingContract = await Greeting.deploy('Hello, FastCampus');
 - **에러 처리**: 다양한 예외 상황에 대한 견고한 처리
 - **모듈화**: 재사용 가능한 컴포넌트 설계
 
+  
+
 ### 프로젝트 경험
 - Web3 생태계 이해 및 실습
 - 블록체인 데이터 처리 및 실시간 업데이트
 - 스마트 컨트랙트 개발 및 배포
 - 사용자 경험을 고려한 에러 처리
+
+
+
+## 🚀 설치 및 실행
+
+### 필수 요구사항
+- Node.js 14.0 이상
+- MetaMask 브라우저 확장 프로그램
+- 이더리움 테스트넷 (Rinkeby, Goerli 등)
+
+### 설치 과정
+
+1. **저장소 클론**
+```bash
+git clone [repository-url]
+cd connecting-React-project-to-MetaMask--React-Etherium
+```
+
+2. **의존성 설치**
+```bash
+npm install
+# 또는
+yarn install
+```
+
+3. **개발 서버 실행**
+```bash
+npm start
+# 또는
+yarn start
+```
+
+4. **브라우저에서 확인**
+```
+http://localhost:3000
+```
+
+## 📱 사용 방법
+
+### 1단계: MetaMask 설정
+1. 브라우저에 MetaMask 확장 프로그램 설치
+2. 지갑 생성 또는 기존 지갑 가져오기
+3. 테스트넷으로 네트워크 변경
+
+### 2단계: 애플리케이션 사용
+1. **지갑 연결**: "Connect" 버튼 클릭
+2. **상태 확인**: 연결된 지갑 정보 확인
+3. **메시지 서명**: "Sign Message" 버튼으로 서명 테스트
+4. **컨트랙트 배포**: "Deploy Greeting Contract" 클릭
+5. **인사말 변경**: 새로운 인사말 입력 및 제출
 
 
 ---
